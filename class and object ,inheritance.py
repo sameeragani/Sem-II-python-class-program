@@ -1,4 +1,4 @@
-"""#using inheritance employee id(parent and child class)
+#using inheritance employee id(parent and child class)
 class Employee:
     def getEmployeeInfo(self):
         self.id=input("Enter the ID:")
@@ -37,7 +37,7 @@ class Display(Inventory):
         print('Product name',self.prodid,'product name',self.prodname,'product count',self.prodcount)
     
 d=Display()
-d.show()"""
+d.show()
 
 
 #multiple inheritance(many parent one child )
@@ -63,5 +63,63 @@ class EmployeeDetails(Employee,Address):
         self.displayEmployeeInfo()
         self.displayaddressInfo()
 ed=EmployeeDetails("Jiya",100,"Manager","Shenoy Nagar","TamilNadu","India")
-ed.displayEmp()
+ed.displayEmp()"""
+
+
+#mutlilevel inheritance(one parent many child(it will change according to the input we give))
+"""class Person:
+    def __init__(self, name, age):  
+        self.name = name
+        self.age = age
+    def displayPerson(self):
+        print("Name =", self.name, "\nAge =", self.age)
+class Employee(Person):
+    def __init__(self, name, age, Id):  
+        super().__init__(name, age)  
+        self.Id = Id
+    def displayEmployee(self):
+        self.displayPerson()
+        print("Id =", self.Id)
+class Manager(Employee):
+    def __init__(self, name, age, Id, Salary):
+        super().__init__(name, age, Id) 
+        self.Salary = Salary
+    def displayManager(self):
+        self.displayEmployee()
+        print("Salary =", self.Salary)
+man = Manager("Sam", 18, 2613, 10000)
+man.displayManager()
+
+#hierarchical inheritance(only one parent class many child)
+class Person:
+    def __init__(self, name, age):  
+        self.name = name
+        self.age = age
+    def displayPerson(self):
+        print("Name =", self.name, "\nAge =", self.age)
+class Student(Person):
+    def __init__(self, name, age, roll_number):  
+        super().__init__(name, age)  
+        self.roll_number = roll_number
+    def displayStudent(self):
+        self.displayPerson()  
+        print("Roll Number =", self.roll_number)
+class Teacher(Person):
+    def __init__(self, name, age, subject):  
+        super().__init__(name, age) 
+        self.subject = subject
+    def displayTeacher(self):
+        self.displayPerson()  
+        print("Subject =", self.subject)
+student = Student("Alice", 20, "S12345")
+teacher = Teacher("Mr. John", 45, "Mathematics")
+print("Student Details:")
+student.displayStudent()
+print("\nTeacher Details:")
+teacher.displayTeacher()
+
+
+
+
+        
         
