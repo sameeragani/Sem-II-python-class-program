@@ -1,4 +1,4 @@
-#using inheritance employee id(parent and child class)
+"""#using inheritance employee id(parent and child class)
 class Employee:
     def getEmployeeInfo(self):
         self.id=input("Enter the ID:")
@@ -116,10 +116,75 @@ teacher = Teacher("Mr. John", 45, "Mathematics")
 print("Student Details:")
 student.displayStudent()
 print("\nTeacher Details:")
-teacher.displayTeacher()
+teacher.displayTeacher()"""
 
+"""#hybrid class
+class Food:
+    def __init__(self, name):
+        self.name = name
+    def display_food(self):
+        print(f"Name: {self.name}")
+class Nutrition(Food):
+    def __init__(self, name, calories):
+        super().__init__(name)
+        self.calories = calories
+    def display_nutrition(self):
+        print(f"Calories: {self.calories}")
+class Preparation(Nutrition):
+    def __init__(self, name, calories, cooking_method):
+        super().__init__(name, calories)
+        self.cooking_method = cooking_method
+    def display_preparation(self):
+        print(f"Cooking Method: {self.cooking_method}")
+class Origin(Preparation, Nutrition):
+    def __init__(self, name, calories, cooking_method, origin):
+        super().__init__(name, calories, cooking_method)
+        self.origin = origin
+    def display_origin(self):
+        print(f"Origin: {self.origin}")
+dish = Origin("Pizza", 250, "Baked", "Italy")
+dish.display_origin()
+dish.display_food()
+dish.display_nutrition()
+dish.display_preparation()"""
 
-
-
-        
+#hybrid class another example
+class Employee:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+    def displayEmployeeInfo(self):
+        print(f"Name: {self.name}\nAge: {self.age}")
+class Manager(Employee):
+    def __init__(self, name, age, ID):
+        super().__init__(name, age)
+        self.ID = ID
+    def displayManagerInfo(self):
+        self.displayEmployeeInfo()
+        print(f"ID: {self.ID}")
+class Developer(Employee):
+    def __init__(self, name, age, dept):
+        super().__init__(name, age)
+        self.dept = dept
+    def displayDeveloperInfo(self):
+        self.displayEmployeeInfo()
+        print(f"Department: {self.dept}")
+class TeamLeader(Manager, Developer):
+    def __init__(self, name, age, ID, dept, teamsize):
+        Employee.__init__(self, name, age)
+        self.ID = ID
+        self.dept = dept
+        self.teamsize = teamsize
+    def displayTeamInfo(self):
+        self.displayEmployeeInfo()
+        print(f"ID: {self.ID}")
+        print(f"Department: {self.dept}")
+        print(f"Team size: {self.teamsize}")
+Name = input("Enter the name: ")
+Age = int(input("Enter the age: "))
+ID = int(input("Enter the ID: "))
+Dept = input("Enter the department: ")
+Teamsize = input("Enter the team size: ")
+tl = TeamLeader(Name, Age, ID, Dept, Teamsize)
+tl.displayTeamInfo()
         
